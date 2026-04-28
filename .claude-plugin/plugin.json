@@ -1,0 +1,11 @@
+{
+  "name": "gus-test-generator",
+  "version": "0.1.0",
+  "description": "Generate comprehensive test cases from PRD/HLD and upload to GUS Taleggio",
+  "skills": [
+    {
+      "name": "gus-test-generator",
+      "path": "skills/gus-test-generator/SKILL.md"
+    }
+  ]
+}

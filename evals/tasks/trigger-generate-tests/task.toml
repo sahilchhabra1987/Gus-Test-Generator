@@ -1,0 +1,3 @@
+[task]
+name = "trigger-generate-tests"
+description = "Verify expert triggers on test case generation requests"
