@@ -2,7 +2,7 @@
 
 **Last Updated:** 2026-04-29  
 **Expert Version:** v1.0.0  
-**Status:** Baseline established from 1 real session (Tier 4 evidence)
+**Status:** 3 real sessions across 3 PRD domains — Tier 2 evidence
 
 ---
 
@@ -52,7 +52,7 @@
 
 **Objective 3 Score: Baseline 0.33 → Expert 0.83 (+0.5)**
 
-> **Evidence:** In real session, expert generated 18 scenarios across all 4 types (functional, integration, edge cases, performance). Baseline typically generates 5-8 functional-only scenarios.
+> **Evidence (3 sessions):** Expert generated 18, 20, and 20 scenarios respectively across Password Reset, Search & Filtering, and Notifications PRDs — all with correct 4-type distribution. Baseline generates 5-8 functional-only scenarios.
 
 ---
 
@@ -88,7 +88,7 @@
 
 **Objective 6 Score: Baseline 0.0 → Expert 1.0 (+1.0)**
 
-> **Evidence (verified in production GUS 2026-04-28):** Expert correctly:
+> **Evidence (verified in production GUS across 3 sessions, 58 scenarios total):** Expert correctly:
 > - Creates ADM_Test_Suite__c with Suite_Name__c (not Name)
 > - Creates ADM_Test_Scenario__c with Test_Name__c, Test_Details__c (not Title__c, Description__c)
 > - Creates ADM_Related_Test_Scenario__c junction record to link suite ↔ scenario
@@ -127,11 +127,11 @@ None detected. Boundary tests confirm expert does not trigger on out-of-scope re
 | Objective | Evidence Type |
 |-----------|---------------|
 | 1 — Trigger | Estimated (known Claude behavior) |
-| 2 — Input Collection | 1 real session trace |
-| 3 — Coverage | 1 real session (18 scenarios generated) |
-| 4 — HTML Formatting | Production GUS verification ✅ |
-| 5 — Preview | 1 real session trace |
-| 6 — Upload | Production GUS verification ✅ |
+| 2 — Input Collection | 3 real session traces |
+| 3 — Coverage | 3 real sessions (18+20+20 = 58 scenarios) |
+| 4 — HTML Formatting | Production GUS verification × 3 PRDs ✅ |
+| 5 — Preview | 3 real session traces |
+| 6 — Upload | Production GUS verification × 3 PRDs (58/58 success) ✅ |
 
 ---
 

@@ -17,6 +17,7 @@ This document contains the **actual, verified GUS object schema** discovered thr
 | `Description__c` on test scenarios | Field does not exist | Use `Test_Details__c` instead |
 | Separate `Preconditions__c`, `Test_Steps__c` fields | Fields do not exist | Combine all in `Test_Details__c` with HTML |
 | `Team__c` is optional | `Team__c` is REQUIRED | Must query ADM_Scrum_Team__c first |
+| `Scrum_Team__c` is writable on ADM_Test_Scenario__c | `Scrum_Team__c` is READ-ONLY | Do not set this field — omit it entirely |
 
 ---
 

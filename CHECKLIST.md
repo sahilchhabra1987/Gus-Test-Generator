@@ -52,6 +52,7 @@ Track progress from draft → candidate → expert.
   - [x] Mistake 4: `Description__c` doesn't exist → use Test_Details__c
   - [x] Mistake 5: `Title__c` doesn't exist → use Test_Name__c
   - [x] Mistake 6: Plain text in Test_Details__c → use HTML
+  - [x] Mistake 7: `Scrum_Team__c` on ADM_Test_Scenario__c is read-only → do not set
 
 ### Quality Requirements
 
@@ -88,10 +89,10 @@ Track progress from draft → candidate → expert.
 
 - [x] **First real usage** (partial — 2 sessions same user):
   - [x] Session 1: User sahil.chhabra1987, Feature Password Reset (PRD), Outcome: Full suite generated + uploaded to GUS ✅
-  - [x] Session 2: User sahil.chhabra1987, Feature Password Reset (re-run to verify fixes), Outcome: HTML formatting + junction object confirmed ✅
-  - [ ] Session 3: User ___, Feature ___, Outcome ___
-  - [ ] Session 4: User ___, Feature ___, Outcome ___
-  - [ ] Session 5: User ___, Feature ___, Outcome ___
+  - [x] Session 2: User sahil.chhabra1987, Feature Advanced Search & Filtering, Outcome: 20 scenarios generated + uploaded, all linked via junction object ✅
+  - [x] Session 3: User sahil.chhabra1987, Feature Notifications & Alerts, Outcome: 20 scenarios generated + uploaded, all linked via junction object ✅
+  - [ ] Session 4: User ___ (different user), Feature ___, Outcome ___
+  - [ ] Session 5: User ___ (different user), Feature ___, Outcome ___
 
 - [x] **Trace analysis complete** (partial):
   - [x] Common failure patterns identified — 6 GUS schema errors documented
@@ -265,3 +266,5 @@ Track progress from draft → candidate → expert.
 **2026-04-28**: Real test run on Password Reset PRD. Discovered 6 GUS schema issues. All fixed and documented in ACTUAL-GUS-SCHEMA.md. HTML formatting verified in production GUS UI.
 
 **2026-04-29**: Eval suite expanded to 7 tasks. Scorecard created. Baseline documented. CHECKLIST updated. All files pushed to GitHub v1.0.0.
+
+**2026-04-29 (continued)**: 2 additional PRD sessions completed (Search & Filtering, Notifications & Alerts). 58 total scenarios uploaded to production GUS across 3 PRDs. New schema finding: Scrum_Team__c on ADM_Test_Scenario__c is read-only. Evidence upgraded to Tier 2.

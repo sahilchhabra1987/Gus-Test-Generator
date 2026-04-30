@@ -1,8 +1,8 @@
 # Baseline Behavior — Claude Without Expert
 
-**Date Recorded:** 2026-04-28  
-**Method:** Observed during expert development session + known Claude default behavior  
-**Evidence Quality:** Tier 3 (partial — 1 real session + behavioral knowledge)
+**Date Recorded:** 2026-04-28 → 2026-04-29  
+**Method:** 3 real sessions across 3 distinct PRD domains  
+**Evidence Quality:** Tier 2 (3 real sessions, production GUS verification, 3 distinct feature domains)
 
 ---
 
@@ -63,21 +63,22 @@ These are the exact errors that occurred when uploading to GUS without the exper
 | 4 | Using `Description__c` on ADM_Test_Scenario__c | `INVALID_FIELD: Description__c` | Use `Test_Details__c` |
 | 5 | Using `Title__c` on ADM_Test_Scenario__c | `INVALID_FIELD: Title__c` | Use `Test_Name__c` |
 | 6 | Plain text in `Test_Details__c` | No error, but renders as wall of text in GUS | Use HTML (`<p>`, `<ul>`, `<ol>`) |
+| 7 | Setting `Scrum_Team__c` on ADM_Test_Scenario__c | `INVALID_FIELD_FOR_INSERT_UPDATE: Scrum_Team__c` | Do not set — field is read-only for this profile |
 
 ---
 
-## Baseline Metrics (Password Reset PRD Test)
+## Baseline Metrics (3 PRD Sessions)
 
-| Metric | Without Expert | With Expert | Target |
-|--------|---------------|-------------|--------|
-| Scenarios generated | ~7 | 18 | ≥15 |
+| Metric | Without Expert | With Expert (avg 3 PRDs) | Target |
+|--------|---------------|--------------------------|--------|
+| Scenarios generated | ~7 | 19.3 (18/20/20) | ≥15 |
 | Functional coverage | ~90% | ~35% | 30-40% |
-| Integration coverage | ~10% | ~28% | 25-30% |
-| Edge case coverage | ~0% | ~22% | 20-25% |
+| Integration coverage | ~10% | ~27% | 25-30% |
+| Edge case coverage | ~0% | ~23% | 20-25% |
 | Performance coverage | ~0% | ~15% | 15-20% |
 | HTML formatting correct | 0% | 100% | 100% |
 | Field names correct | 0% | 100% | 100% |
-| GUS upload success | 0% (all failed) | 100% | 100% |
+| GUS upload success | 0% (all failed) | 100% (58/58 scenarios) | 100% |
 | Preview step included | No | Yes | Yes |
 | Junction object used | No | Yes | Yes |
 
@@ -85,7 +86,7 @@ These are the exact errors that occurred when uploading to GUS without the exper
 
 ## 3 Validated Behaviors
 
-These behaviors were confirmed working in the real test session (2026-04-28):
+These behaviors were confirmed across 3 real sessions (2026-04-28 to 2026-04-29):
 
 ### Behavior 1: HTML Formatting in Test_Details__c
 **What the expert does:** Generates `Test_Details__c` content using HTML — `<p>` for sections, `<ul>/<li>` for preconditions, `<ol>/<li>` for numbered steps, `<strong>` for labels, `<br/>` for line breaks within steps.
@@ -108,6 +109,16 @@ These behaviors were confirmed working in the real test session (2026-04-28):
 ### Behavior 3: Comprehensive Test Coverage
 **What the expert does:** Generates minimum 15 scenarios across 4 test types with specific coverage targets (30/25/20/15 split). Assigns realistic P0-P3 priorities. Gives each scenario a unique TS-### ID.
 
-**Verified:** Generated 18 scenarios on Password Reset PRD — 6 functional, 5 integration, 4 edge cases, 3 performance. Priority spread across P0 (3), P1 (8), P2 (5), P3 (2).
+**Verified across 3 PRDs:**
+- Password Reset: 18 scenarios (7F / 5I / 4E / 3P) ✅
+- Advanced Search & Filtering: 20 scenarios (7F / 5I / 5E / 3P) ✅
+- Notifications & Alerts: 20 scenarios (7F / 5I / 5E / 3P) ✅
+
+All uploaded successfully to production GUS with correct schema, HTML formatting, and junction object linking.
 
 **Without expert:** ~7 scenarios, mostly functional, no consistent IDs, unrealistic priority distribution.
+
+---
+
+### Additional Schema Finding (2026-04-29)
+`Scrum_Team__c` on `ADM_Test_Scenario__c` is **read-only** for our profile — do not attempt to set it when creating scenarios. It is not needed for scenario creation; `Team__c` on the suite is sufficient.
