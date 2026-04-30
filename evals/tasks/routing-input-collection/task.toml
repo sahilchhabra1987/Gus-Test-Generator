@@ -1,0 +1,3 @@
+[task]
+name = "routing-input-collection"
+description = "Verify expert asks for PRD and Product Tag before generating test cases"

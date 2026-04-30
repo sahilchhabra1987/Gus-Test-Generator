@@ -1,0 +1,3 @@
+[task]
+name = "effectiveness-html-formatting"
+description = "Verify expert formats test scenario details as valid HTML for GUS Test_Details__c field"

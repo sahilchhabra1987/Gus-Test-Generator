@@ -1,0 +1,3 @@
+[task]
+name = "boundary-missing-prd"
+description = "Verify expert refuses to generate test cases when no PRD is provided"

@@ -1,0 +1,3 @@
+[task]
+name = "effectiveness-coverage-types"
+description = "Verify expert generates all 4 test types: functional, integration, edge cases, performance"

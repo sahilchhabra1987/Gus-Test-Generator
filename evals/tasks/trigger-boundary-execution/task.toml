@@ -1,0 +1,3 @@
+[task]
+name = "trigger-boundary-execution"
+description = "Verify expert does NOT trigger on test execution / result tracking requests"

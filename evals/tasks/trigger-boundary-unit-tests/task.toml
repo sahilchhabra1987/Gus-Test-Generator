@@ -1,0 +1,3 @@
+[task]
+name = "trigger-boundary-unit-tests"
+description = "Verify expert does NOT trigger on unit test code generation requests"
